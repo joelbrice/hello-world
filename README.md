@@ -1,3 +1,2 @@
 # hello-world
-this is my first repository
-
+This is a nice hello world with animation and nice CSS
