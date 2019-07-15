@@ -1,23 +1,29 @@
 body{
 	background-color: grey;
-	font-family: verdana;
-	text-align: center;
 }
-.hello{
-	padding: 35%;
-	border: 3px solid red;
+.hello h1{
+	padding: 0%;
 	color: green;
 	font-size: 44px;
 	font-weight: bold;
-	margin: auto;
-	text-decoration: underline;
-	text-shadow: 1px 1px red;
-	animation: linear 5s; 
+	margin: 0;
+  	animation-duration: 5s;
+  	animation-name: slidein;
 }
 
-p {
-  animation-duration: 10s;
-  animation-name: slidein;
+.hello {
+	padding: 20%;
+	text-shadow: 1px 1px #14e9e9;
+	animation: linear;  
+	font-family: verdana;
+	text-align: center;
+	border: 1px solid #59ddc7;
+	border-radius: 5px;
+
+}
+p{
+	color: #fcfcfc;
+	margin-top: 5%;
 }
 
 @keyframes slidein {
