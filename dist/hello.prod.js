@@ -1,0 +1,1 @@
+"use strict";for(var p=document.getElementsByTagName("p"),i=0;i<p.length;i++)p.slice(),p.pop();

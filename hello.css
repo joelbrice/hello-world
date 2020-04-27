@@ -1,39 +1,40 @@
-body{
-	background-color: grey;
+body {
+    background-color: grey;
+    height: 100vh;
 }
-.hello h1{
-	padding: 0%;
-	color: green;
-	font-size: 44px;
-	font-weight: bold;
-	margin: 0;
-  	animation-duration: 5s;
-  	animation-name: slidein;
+
+.hello h1 {
+    padding: 0%;
+    color: green;
+    font-size: 44px;
+    font-weight: bold;
+    margin: 0;
+    animation-duration: 5s;
+    animation-name: slidein;
 }
 
 .hello {
-	padding: 20%;
-	text-shadow: 1px 1px #14e9e9;
-	animation: linear;  
-	font-family: verdana;
-	text-align: center;
-	border: 1px solid #59ddc7;
-	border-radius: 5px;
-
+    padding: 20%;
+    text-shadow: 1px 1px #14e9e9;
+    animation: linear;
+    font-family: verdana;
+    text-align: center;
+    border: 1px solid #59ddc7;
+    border-radius: 5px;
 }
-p{
-	color: #fcfcfc;
-	margin-top: 5%;
+
+p {
+    color: #fcfcfc;
+    margin-top: 5%;
 }
 
 @keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%; 
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
 }
