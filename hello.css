@@ -1,40 +1,62 @@
-body {
-    background-color: grey;
-    height: 100vh;
-}
-
-.hello h1 {
-    padding: 0%;
-    color: green;
-    font-size: 44px;
-    font-weight: bold;
+/* General Reset */
+body,
+html {
     margin: 0;
-    animation-duration: 5s;
-    animation-name: slidein;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
 }
 
+/* Background Animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Main Content */
 .hello {
-    padding: 20%;
-    text-shadow: 1px 1px #14e9e9;
-    animation: linear;
-    font-family: verdana;
-    text-align: center;
-    border: 1px solid #59ddc7;
-    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+}
+
+h1.glow {
+    font-size: 4rem;
+    text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
+    animation: glowEffect 2s infinite;
 }
 
 p {
-    color: #fcfcfc;
-    margin-top: 5%;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 10px;
 }
 
-@keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
+/* Animations */
+@keyframes glowEffect {
+    0% {
+        text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
     }
-    to {
-        margin-left: 0%;
-        width: 100%;
+
+    50% {
+        text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+    }
+
+    100% {
+        text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
     }
 }
