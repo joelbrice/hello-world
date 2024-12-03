@@ -6,6 +6,8 @@ html {
     overflow: hidden;
     font-family: 'Arial', sans-serif;
     height: 100%;
+    background: black;
+    /* To simulate deep space */
 }
 
 /* Background Animation */
@@ -31,32 +33,30 @@ canvas {
     justify-content: center;
     align-items: center;
     height: 100%;
-    color: #fff;
+    color: white;
+    text-align: center;
 }
 
 h1.glow {
     font-size: 4rem;
-    text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
+    text-shadow: 0 0 20px #00e6e6, 0 0 30px #00e6e6, 0 0 40px #00e6e6;
     animation: glowEffect 2s infinite;
 }
 
 p {
     font-size: 1.5rem;
-    text-align: center;
-    margin: 10px;
+    margin-top: 15px;
 }
 
-/* Animations */
+/* Glow Animation */
 @keyframes glowEffect {
-    0% {
-        text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
+
+    0%,
+    100% {
+        text-shadow: 0 0 20px #00e6e6, 0 0 30px #00e6e6, 0 0 40px #00e6e6;
     }
 
     50% {
-        text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
-    }
-
-    100% {
-        text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
+        text-shadow: 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
     }
 }

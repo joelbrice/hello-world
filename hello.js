@@ -1,69 +1,60 @@
-const canvas = document.getElementById("background");
+const canvas = document.getElementById("space");
 const ctx = canvas.getContext("2d");
 
-let particlesArray = [];
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-window.addEventListener("resize", function () {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initParticles();
-});
+const stars = [];
+const numStars = 200;
 
-// Create Particle Class
-class Particle {
-    constructor(x, y, dx, dy, size, color) {
-        this.x = x;
-        this.y = y;
-        this.dx = dx;
-        this.dy = dy;
-        this.size = size;
-        this.color = color;
+class Star {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.z = Math.random() * canvas.width;
+        this.radius = Math.random() * 2 + 1;
     }
 
     draw() {
+        const sx = (this.x - canvas.width / 2) * (canvas.width / this.z);
+        const sy = (this.y - canvas.height / 2) * (canvas.height / this.z);
+        const size = canvas.width / this.z;
+
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = this.color;
+        ctx.arc(sx + canvas.width / 2, sy + canvas.height / 2, size * this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "white";
         ctx.fill();
     }
 
     update() {
-        this.x += this.dx;
-        this.y += this.dy;
-
-        if (this.x + this.size > canvas.width || this.x - this.size < 0) {
-            this.dx = -this.dx;
+        this.z -= 2;
+        if (this.z <= 0) {
+            this.z = canvas.width;
         }
-        if (this.y + this.size > canvas.height || this.y - this.size < 0) {
-            this.dy = -this.dy;
-        }
-
         this.draw();
     }
 }
 
-// Initialize Particles
-function initParticles() {
-    particlesArray = [];
-    for (let i = 0; i < 100; i++) {
-        let size = Math.random() * 5 + 1;
-        let x = Math.random() * (canvas.width - size * 2) + size;
-        let y = Math.random() * (canvas.height - size * 2) + size;
-        let dx = (Math.random() - 0.5) * 2;
-        let dy = (Math.random() - 0.5) * 2;
-        let color = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.8)`;
-        particlesArray.push(new Particle(x, y, dx, dy, size, color));
+function init() {
+    for (let i = 0; i < numStars; i++) {
+        stars.push(new Star());
     }
 }
 
-// Animate Particles
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particlesArray.forEach((particle) => particle.update());
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach((star) => star.update());
     requestAnimationFrame(animate);
 }
 
-initParticles();
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars.length = 0;
+    init();
+});
+
+init();
 animate();
